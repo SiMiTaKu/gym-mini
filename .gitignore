@@ -1,0 +1,48 @@
+# FYI: Godot専用.gitignore設定
+# 参考: https://github.com/github/gitignore/blob/main/Godot.gitignore
+
+# Godotエディタが自動生成するファイル
+.import/
+export.cfg
+export_presets.cfg
+
+# Godot 4.x
+.godot/
+
+# インポートされたトランスレーション
+*.translation
+
+# Monoビルドデータ（C#プロジェクトの場合）
+.mono/
+data_*/
+mono_crash.*.json
+
+# ビルド成果物
+/builds/
+*.apk
+*.ipa
+*.exe
+*.dmg
+*.zip
+
+# ログファイル
+*.log
+
+# OSが生成するファイル
+.DS_Store
+Thumbs.db
+
+# FYI: エディタ固有の設定（個人用）
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# NOTE: アセットの元ファイル（.psd, .aiなど）は含めない方針
+# プロジェクトサイズを小さく保つため
+*.psd
+*.ai
+*.xcf
+
+# TODO: 将来的にLFSを使う場合は大きなアセットファイルを管理
