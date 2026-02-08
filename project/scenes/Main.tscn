@@ -1,3 +1,37 @@
 [gd_scene format=3 uid="uid://c7fc5oydhk5cl"]
 
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/CameraFollow.gd" id="2"]
+[ext_resource type="Texture2D" path="res://icon.svg" id="3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(60, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2"]
+size = Vector2(4000, 100)
+
 [node name="Main" type="Node2D" unique_id=64823405]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(200, 1400)
+script = ExtResource("1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("3")
+scale = Vector2(1, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 1400)
+current = true
+script = ExtResource("2")
+target_path = NodePath("../Player")
+fixed_y = 1400.0
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(0, 1600)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_2")
